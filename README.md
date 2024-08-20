@@ -3,7 +3,8 @@
 a small website for blogs, made with react-router-dom v6
 
 ## to start the server 
-npx json-server --watch data/db.json --port 8000
+npx json-server --watch data/db.json --port port-num
+change port-num with port number you want
 
 ## to start the app
 npm run start
