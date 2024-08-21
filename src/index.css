@@ -69,6 +69,15 @@
   border-radius: 8px;
   cursor: pointer;
 }
+.blog-details textarea{
+  width: 100%;
+  height: 50%;
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
 
 /* create new blog form */
 .create {
@@ -101,9 +110,9 @@
   border-radius: 8px;
   cursor: pointer;
 }
-.blog-details textarea{
-  width: 100%;
-  height: 50%;
+
+/* login */
+.login input{
   padding: 6px 10px;
   margin: 10px 0;
   border: 1px solid #ddd;
