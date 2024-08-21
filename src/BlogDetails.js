@@ -59,7 +59,7 @@ const BlogDetails = () => {
         <article>
           <h2>{blog.title}</h2>
           <p>Written by {blog.author}</p>
-          <button onClick={toggleEdit}>edit</button>
+          {!edit && <button onClick={toggleEdit}>edit</button>}
           <div>
             {!edit && blog.body}
             {edit && (
