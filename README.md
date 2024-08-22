@@ -10,4 +10,4 @@ change port-num with port number you want
 npm run start
 
 ## demo
-![](https://github.com/React-My-Blog/react-my-blog.gif)
+![]([https://github.com/React-My-Blog/react-my-blog.gif](https://github.com/hansen9/React-My-Blog/blob/main/react-my-blog.gif))
