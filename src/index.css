@@ -119,3 +119,33 @@
   box-sizing: border-box;
   display: block;
 }
+.login button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.login .google-signin{
+  background: white;
+  color: #333;
+  border: 1px solid black;
+}
+
+/* register */
+.register input{
+  padding: 6px 10px;
+  margin: 10px 0;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  display: block;
+}
+.register button {
+  background: #f1356d;
+  color: #fff;
+  border: 0;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+}

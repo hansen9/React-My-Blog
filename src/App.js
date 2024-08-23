@@ -5,6 +5,7 @@ import NavBar from "./Components/NavBar";
 import BlogDetails from "./BlogDetails";
 import NotFound from "./NotFound";
 import Login from "./Login";
+import Register from "./Register";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <NavBar></NavBar>
         <div className="content">
           <Routes>
+            <Route path="/register" Component={Register}></Route>
             <Route path="/login" Component={Login}></Route>
             <Route path="/" Component={Home}></Route>
             <Route path="/create" Component={Create}></Route>
