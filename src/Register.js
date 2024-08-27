@@ -1,7 +1,5 @@
 import { useState } from "react";
 import { doCreateUserWithEmailAndPassword } from "./Firebase/Auth";
-import { auth } from "./Firebase/FireBase";
-
 const Register = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -10,6 +8,8 @@ const Register = () => {
   const handleRegister = async(e) => {
     e.preventDefault();
     doCreateUserWithEmailAndPassword(email, username, password)
+    
+    window.location.href = "/login"
   };
   return (
     <div className="register">

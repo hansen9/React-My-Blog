@@ -15,14 +15,16 @@ export const doCreateUserWithEmailAndPassword = async (
   username,
   password
 ) => {
+  const createdSuccessfully = await createUserWithEmailAndPassword(auth, email, password)
   const user = auth.currentUser;
-  if (email && username) {
+  console.log(user)
+  if (user) {
     await setDoc(doc(db, "users", user.uid), {
       email: user.email,
       username: username,
     });
   }
-  return createUserWithEmailAndPassword(auth, email, password);
+  return createdSuccessfully;
 };
 
 export const doSignInWithEmailAndPassword = (email, password) => {

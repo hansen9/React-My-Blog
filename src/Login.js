@@ -7,9 +7,9 @@ import {
 import { Navigate, Link } from "react-router-dom";
 
 const Login = () => {
-  // const { userLoggedIn } = useAuth()
-  const { email, setEmail } = useState("");
-  const { password, setPassword } = useState("");
+  const { userLoggedIn } = useAuth()
+  const [ email, setEmail ]  = useState("");
+  const [ password, setPassword ] = useState("");
   const [isSigningIn, setIsSigningIn] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
 
@@ -17,7 +17,9 @@ const Login = () => {
     e.preventDefault();
     if (!isSigningIn) {
       setIsSigningIn(true);
-      await doSignInWithEmailAndPassword(email, password);
+      doSignInWithEmailAndPassword(email, password);
+      console.log(userLoggedIn)
+      window.location.href = "/"
     }
   };
   const onGoogleSignIn = (e) => {
@@ -31,59 +33,33 @@ const Login = () => {
   };
   return (
     <div className="login">
-      {/* {userLoggedIn && (<Navigate to={'/home'} replace={true} />)} */}
-
-      {/* <form  onSubmit={handleLogin}>
-                <label>Email</label>
-                <input
-                type="email"
-                autoComplete="email"
-                required
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                />
-
-                <label>Password</label>
-                <input
-                type="password"
-                required
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                ></input>
-
-                { !isSigningIn && <button>Login</button>}
-                { isSigningIn && <button disabled>Logging in...</button>}
-
-            </form>
-            {errorMessage && (
-                <span className='text-red-600 font-bold'>{errorMessage}</span>
-            )} */}
-      <main className="w-full h-screen flex self-center place-content-center place-items-center">
-        <div className="w-96 text-gray-600 space-y-5 p-4 shadow-xl border rounded-xl">
-          <div className="text-center">
-            <div className="mt-2">
-              <h3 className="text-gray-800 text-xl font-semibold sm:text-2xl">
+      {userLoggedIn && (<Navigate to={'/home'} replace={true} />)}
+      {errorMessage && (
+          <span className='text-red-600 font-bold'>{errorMessage}</span>
+      )}
+      <main>
+        <div>
+          <div>
+            <div>
+              <h3>
                 Welcome Back
               </h3>
             </div>
           </div>
           <form onSubmit={handleLogin} className="space-y-5">
             <div>
-              <label className="text-sm text-gray-600 font-bold">Email</label>
+              <label>Email</label>
               <input
                 type="email"
                 autoComplete="email"
                 required
                 value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                }}
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                onChange={(e) => setEmail(e.target.value)}
               />
             </div>
 
             <div>
-              <label className="text-sm text-gray-600 font-bold">
+              <label>
                 Password
               </label>
               <input
@@ -91,53 +67,40 @@ const Login = () => {
                 autoComplete="current-password"
                 required
                 value={password}
-                onChange={(e) => {
-                  setPassword(e.target.value);
-                }}
-                className="w-full mt-2 px-3 py-2 text-gray-500 bg-transparent outline-none border focus:border-indigo-600 shadow-sm rounded-lg transition duration-300"
+                onChange={(e) => setPassword(e.target.value)}
               />
             </div>
 
             {errorMessage && (
-              <span className="text-red-600 font-bold">{errorMessage}</span>
+              <span>{errorMessage}</span>
             )}
 
             <button
               type="submit"
               disabled={isSigningIn}
-              className={`w-full px-4 py-2 text-white font-medium rounded-lg ${
-                isSigningIn
-                  ? "bg-gray-300 cursor-not-allowed"
-                  : "bg-indigo-600 hover:bg-indigo-700 hover:shadow-xl transition duration-300"
-              }`}
             >
               {isSigningIn ? "Signing In..." : "Sign In"}
             </button>
           </form>
-          <p className="text-center text-sm">
+          <p>
             Don't have an account?{" "}
-            <Link to={"/register"} className="hover:underline font-bold">
+            <Link to={"/register"}>
               Sign up
             </Link>
           </p>
-          <div className="flex flex-row text-center w-full">
-            <div className="border-b-2 mb-2.5 mr-2 w-full"></div>
-            <div className="text-sm font-bold w-fit">OR</div>
-            <div className="border-b-2 mb-2.5 ml-2 w-full"></div>
+          <div>
+            <div></div>
+            <div>OR</div>
+            <div></div>
           </div>
           <button
             disabled={isSigningIn}
             onClick={(e) => {
               onGoogleSignIn(e);
             }}
-            className={`w-full flex items-center justify-center gap-x-3 py-2.5 border rounded-lg text-sm font-medium google-signin ${
-              isSigningIn
-                ? "cursor-not-allowed"
-                : "hover:bg-gray-100 transition duration-300 active:bg-gray-100"
-            }`}
+            className="google-signin"
           >
             <svg
-              className="w-5 h-5"
               viewBox="0 0 48 48"
               fill="none"
               xmlns="http://www.w3.org/2000/svg"
